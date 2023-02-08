@@ -10,3 +10,9 @@ Login credentials:
 - vagrant/vagrant
 
 For the Windows PC users, I would recommend the Alacritty - A fast, cross-platform, OpenGL terminal emulator. My `alacrity.yml` is also shared in this repository.
+
+\- :) -
+
+**How did this repository happen to me?**
+ 
+- https://note.jsntn.com/bye-pc-ide.html
