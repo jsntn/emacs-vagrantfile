@@ -41,11 +41,14 @@ sudo git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo ~/.fzf/install
 
 # install tmux
-sudo apt install -y tmux    
+sudo apt install -y tmux
 
 # install nodejs
-# https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
-# snap install node --classic --channel=18
+# https://github.com/nodesource/distributions/blob/master/README.md
+# note,
+# Ubuntu 18.04 LTS (Bionic Beaver) WARNING: BUILD SYSTEM CURRENTLY BROKEN FOR NODEJS 18+
+# curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash - &&\
+# sudo apt-get install -y nodejs
 
 # install pyright
-# npm install -g pyright
+# sudo npm install -g pyright
