@@ -1,25 +1,37 @@
 #!/bin/bash
 
-sudo pacman -Syu --noconfirm
+set -e
 
-# install git
-sudo pacman -S --noconfirm git
+if command -v snap &> /dev/null; then
+    echo "Snap is installed."
+else
 
-# install base-devel
-sudo pacman -S --noconfirm base-devel
-# https://wiki.archlinux.org/title/Arch_User_Repository
+    sudo pacman -Syu --noconfirm
 
-# install snap
-cd ~
-git clone https://aur.archlinux.org/snapd.git
-cd snapd
-makepkg -si --noconfirm --skippgpcheck
+    # install git
+    sudo pacman -S --noconfirm git
 
-sudo systemctl enable --now snapd.socket
+    # install base-devel
+    sudo pacman -S --noconfirm base-devel
+    # https://wiki.archlinux.org/title/Arch_User_Repository
 
-sudo ln -s /var/lib/snapd/snap /snap
+    # install snap
+    cd ~
+    git clone https://aur.archlinux.org/snapd.git || true
+    cd snapd
+    makepkg -si --noconfirm --skippgpcheck
 
-# note: restart system to ensure snap's paths are updated correctly
+    sudo systemctl enable --now snapd.socket
+
+    sudo ln -s /var/lib/snapd/snap /snap
+
+    # =======
+    # NOTE: RESTART SYSTEM TO ENSURE SNAP'S PATHS ARE UPDATED CORRECTLY
+    sudo shutdown now
+    # =======
+
+fi
+
 
 # install emacs28
 # pacman -S --noconfirm emacs
@@ -29,6 +41,8 @@ sudo snap install emacs --channel=28.x/stable --classic
 # clone my .emacs.d
 # cd ~
 # git clone https://github.com/jsntn/emacs.d .emacs.d || true
+
+# pacman -Syu --noconfirm
 
 # install python and pip
 # sudo pacman -S --noconfirm python
