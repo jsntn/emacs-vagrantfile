@@ -10,6 +10,7 @@ sudo pacman -S --noconfirm base-devel
 # https://wiki.archlinux.org/title/Arch_User_Repository
 
 # install snap
+cd ~
 git clone https://aur.archlinux.org/snapd.git
 cd snapd
 makepkg -si --noconfirm --skippgpcheck
